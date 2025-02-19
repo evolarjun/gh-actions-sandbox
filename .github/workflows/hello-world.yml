@@ -1,9 +1,13 @@
-name: Helo word
+name: Helo checkout
 on: push
 
 jobs:
     myjobs1:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v4
+            - name: list files in the repo
+              run: ls ${{ github.workspace }}
             - run: echo "hello world"
             - run: echo "The job was triggered by ${{github.event_name}}"
+            
